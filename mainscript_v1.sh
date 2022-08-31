@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# (C) C.Vriend - 1/1/2020
-# code written as part of ENIGMA OCD for subsegmentation of the thalamus
-# script to run FreeSurfer on T1 and subsequently perform thalamic subsegmentation
-# script assumes that images are organized according to BIDS format
+# (C) C.Vriend - 1/1/2020 adapted by E. van Heese - 08/2022
+# code adapted for the NICHY consortium to run FreeSurfer cortical, subcortical, and subfield segmentation
+# input T1w-scans should be organised according to the BIDS format
+# please read the NICHY brainseg manual for detailed instructions: 
+# https://docs.google.com/document/d/1W-yPnq0Wswobb3dDGWeq0CA11dA9XbVHrwn8337LTDs/edit?usp=sharing
 
 # source directories
 export USER="${USER:=`whoami`}"
@@ -19,10 +20,11 @@ export FSLOUTPUTTYPE=NIFTI_GZ
 Usage() {
     cat <<EOF
 
-    (C) C.Vriend - 5/16/2020
-    code written for ENIGMA OCD for subsegmentation of the thalamus using FreeSurfer 7.1.0
-    and other open-source software
-    script assumes that images are organized according to BIDS format
+    (C) C.Vriend - 5/16/2020 adapted by E. van Heese - 08/2022
+    code adapted for the NICHY consortium to run FreeSurfer cortical, subcortical, and subfield segmentation
+    input T1w-scans should be organised according to the BIDS format
+    please read the NICHY brainseg manual for detailed instructions: 
+    https://docs.google.com/document/d/1W-yPnq0Wswobb3dDGWeq0CA11dA9XbVHrwn8337LTDs/edit?usp=sharing
 
     Usage: -bidsdir <BIDSdir> -outdir <SUBJECTS_DIR> -sample <sample name> (-group) [options] ...
     Obligatory:
